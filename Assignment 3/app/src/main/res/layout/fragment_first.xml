@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FirstFragment">
+
+    <TextView
+        android:id="@+id/textintro"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/fab_margin"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Droid Deserts"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        >
+    </TextView>
+
+    <ImageView
+        android:id="@+id/donut"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:src="@drawable/donut_circle"
+        app:layout_constraintTop_toBottomOf="@id/textintro"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="@dimen/margin"
+        >
+    </ImageView>
+
+    <TextView
+        android:id="@+id/donut_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        app:layout_constraintStart_toEndOf="@id/donut"
+        app:layout_constraintTop_toTopOf="@id/donut"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/donut"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/textSize"
+        android:text="@string/donuts">
+    </TextView>
+
+    <ImageView
+        android:id="@+id/ice_cream"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:src="@drawable/icecream_circle"
+        app:layout_constraintTop_toBottomOf="@id/donut"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="@dimen/margin"
+        >
+    </ImageView>
+
+    <TextView
+        android:id="@+id/ice_cream_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        app:layout_constraintStart_toEndOf="@id/ice_cream"
+        app:layout_constraintTop_toTopOf="@id/ice_cream"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/ice_cream"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/textSize"
+        android:text="@string/ice_cream_sandwiches">
+    </TextView>
+
+    <ImageView
+        android:id="@+id/froyo"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:src="@drawable/froyo_circle"
+        app:layout_constraintTop_toBottomOf="@id/ice_cream"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="@dimen/margin">
+    </ImageView>
+
+    <TextView
+        android:id="@+id/froyo_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        app:layout_constraintStart_toEndOf="@id/donut"
+        app:layout_constraintTop_toTopOf="@id/froyo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/froyo"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/textSize"
+        android:text="@string/froyo">
+    </TextView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
