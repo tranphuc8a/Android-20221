@@ -55,6 +55,7 @@ public class FirstFragment extends Fragment {
             NavHostFragment.findNavController(FirstFragment.this)
                     .navigate(R.id.action_FirstFragment_to_SecondFragment);
         });
+        fab.show();
     }
 
     @Override

@@ -4,9 +4,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 
@@ -18,10 +21,12 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.assignment3.databinding.FragmentSecondBinding;
 
-public class SecondFragment extends Fragment {
+
+public class SecondFragment extends Fragment implements
+        AdapterView.OnItemSelectedListener {
 
     private FragmentSecondBinding binding;
-    private Bundle savedInstanceState = null;
+    private int idItemSelected = -1;
 
     @Override
     public View onCreateView(
@@ -64,34 +69,33 @@ public class SecondFragment extends Fragment {
                     }
                 }
             });
-        this.savedInstanceState = savedInstanceState;
-
     }
 
     public void displayToast(String message){
-        Toast.makeText(this.getContext(), message, Toast.LENGTH_SHORT);
+        Toast.makeText(this.getContext(), message, Toast.LENGTH_SHORT).show();
     }
 
     public void onClickRadioButton(View view){
-//        RadioButton radioButton = (RadioButton) view;
-//        if (radioButton.isChecked()){
-//            displayToast("You have already choosen this item");
-//        } else {
-//            radioButton.setChecked(true);
-//            switch (radioButton.getId()){
-//                case R.id.sameday:
-//                    displayToast(String.valueOf(R.string.same_day_messenger_service));
-//                    break;
-//                case R.id.nextday:
-//                    displayToast(String.valueOf(R.string.next_day_ground_delivery));
-//                    break;
-//                case R.id.pickup:
-//                    displayToast(String.valueOf(R.string.pick_up));
-//                    break;
-//                default:
-//                    displayToast("Failure");
-//            }
-//        }
+        RadioButton radioButton = (RadioButton) view;
+        int id = radioButton.getId();
+        if (idItemSelected == id){
+            displayToast("You have already selected this item");
+        } else {
+            idItemSelected = id;
+            switch (idItemSelected){
+                case R.id.sameday:
+                    displayToast(getString(R.string.same_day_messenger_service));
+                    break;
+                case R.id.nextday:
+                    displayToast(getString(R.string.next_day_ground_delivery));
+                    break;
+                case R.id.pickup:
+                    displayToast(getString(R.string.pick_up));
+                    break;
+                default:
+                    displayToast("Failure");
+            }
+        }
     }
 
     @Override
@@ -101,41 +105,29 @@ public class SecondFragment extends Fragment {
         activity.getFloatingActionButton().setOnClickListener(view->{
             // do nothing;
         });
-        binding.deliveryChoose.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                onClickRadioButton(radioGroup.findViewById(i));
-            }
-        });
+        activity.getFloatingActionButton().hide();
+
         binding.sameday.setOnClickListener(view -> onClickRadioButton(view));
         binding.nextday.setOnClickListener(view -> onClickRadioButton(view));
         binding.pickup.setOnClickListener(view -> onClickRadioButton(view));
-        if (savedInstanceState != null && savedInstanceState.containsKey("radioChecked")) {
-            int index = savedInstanceState.getInt("radioChecked");
-            binding.sameday.setChecked(false);
-            binding.nextday.setChecked(false);
-            binding.pickup.setChecked(false);
-            if (index == 1){
-                binding.sameday.setChecked(true);
-            } else if (index == 2){
-                binding.nextday.setChecked(true);
-            } else if (index == 3){
-                binding.pickup.setChecked(true);
-            } else {
-                // do nothing
-            }
-        }
+
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this.getContext(),
+                R.array.labels_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        binding.labelSpinner.setOnItemSelectedListener(this);
+        binding.labelSpinner.setAdapter(adapter);
     }
 
     @Override
-    public void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-        int index = 1;
-        if (binding.nextday.isChecked()) index = 2;
-        else if (binding.pickup.isChecked()) index = 3;
-        else {
-            // do nothing
-        }
-        outState.putInt("radioChecked", index);
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        String spinnerLabel = adapterView.getItemAtPosition(i).toString();
+        displayToast(spinnerLabel);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
     }
 }

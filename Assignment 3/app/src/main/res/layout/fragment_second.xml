@@ -82,13 +82,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin"
-        android:ems="10"
+        android:ems="9"
         android:hint="@string/enter_phone_hint"
         android:inputType="phone"
         app:layout_constraintStart_toEndOf="@id/phone_label"
         app:layout_constraintBaseline_toBaselineOf="@id/phone_label"
         >
     </EditText>
+
+    <Spinner
+        android:id="@+id/label_spinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/phone_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/phone_text"
+        app:layout_constraintBottom_toBottomOf="@id/phone_text"
+        android:layout_margin="@dimen/fab_margin"
+        />
 
     <TextView
         android:id="@+id/note_label"
@@ -163,8 +174,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/previous"
+        android:layout_margin="@dimen/margin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
