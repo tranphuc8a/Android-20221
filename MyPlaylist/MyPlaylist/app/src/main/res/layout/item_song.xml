@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="0dp"
+    android:layout_margin="0dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/imgSong"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:paddingTop="16dp"
+        android:layout_marginStart="16dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toStartOf="@id/tvSongName"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/line"/>
+
+    <TextView
+        android:id="@+id/tvSongName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hãy trao cho em"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toTopOf="@id/imgSong"
+        app:layout_constraintStart_toEndOf="@id/imgSong"/>
+
+    <TextView
+        android:id="@+id/tvSongSinger"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sơn tùng mtp"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/imgSong"
+        app:layout_constraintStart_toEndOf="@id/imgSong"/>
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:background="@color/black"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/imgSong"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
