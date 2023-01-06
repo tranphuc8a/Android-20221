@@ -1,0 +1,5 @@
+Tuần 12
+Due January 10, 2023 11:59 PM
+Instructions
+Thực hiện lại bài tập sau bằng Android Java
+https://www.youtube.com/watch?v=UTvR-dU0SXk
