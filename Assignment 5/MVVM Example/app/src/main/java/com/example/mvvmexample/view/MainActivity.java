@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.root);
+        setContentView(binding.getRoot());
 
         cityViewModel = new ViewModelProvider(this).get(CityViewModel.class);
 

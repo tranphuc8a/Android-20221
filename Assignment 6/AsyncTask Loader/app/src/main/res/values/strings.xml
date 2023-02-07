@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">AsyncTaskLoader</string>
+    <string name="no_title">No title</string>
+    <string name="no_authors">Không có tác giả</string>
+    <string name="publish_year">1970</string>
+    <string name="language">VI</string>
+    <string name="categories">Tình cảm</string>
+    <string name="pageCount">1000 trg</string>
+    <string name="description">TODO</string>
+    <string name="hint">Tìm sách</string>
+    <string name="button_text">Tìm sách</string>
+</resources>
